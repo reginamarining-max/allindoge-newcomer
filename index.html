@@ -88,6 +88,7 @@
   .grad{background:linear-gradient(90deg,#fff 0%,#ffd65a 45%,#f59d22 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
   .sub{font-size:20px;color:#b9bec8;max-width:760px;margin:0 0 30px}
   .actions{display:flex;gap:12px;flex-wrap:wrap}
+  .product-actions{margin-top:12px}
   .btn{padding:13px 18px;border-radius:12px;font-weight:800;font-size:14px;border:1px solid transparent;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer}
   .btn.primary,.btn.qq,.history-embed .history-back{background:#ffc83d;color:#111;border-color:#ffc83d}
   .btn.ghost,.btn.x,.xlink{border:1px solid rgba(255,200,61,.28);color:#ffd66d;background:rgba(255,200,61,.07)}
@@ -111,10 +112,32 @@
     border:1px solid rgba(255,255,255,.09);
     background:#0d1117;border-radius:20px;padding:24px;
     min-height:210px;
+    color:inherit;
+    transition:border-color .18s ease, background .18s ease, transform .18s ease;
+  }
+  a.card:hover{
+    border-color:rgba(255,200,61,.45);
+    background:#121821;
+    transform:translateY(-2px);
   }
   .card .num{font-size:12px;color:#777f8d;font-weight:900;letter-spacing:.16em}
   .card h3{font-size:22px;margin:12px 0 8px}
   .card p{color:#9ca3ad;margin:0;font-size:15px}
+  .card-go{display:inline-block;margin-top:16px;color:#ffc83d;font-weight:800;font-size:13px}
+  .product-links{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px
+  }
+  .plink{
+    display:flex;flex-direction:column;gap:6px;padding:22px;border-radius:20px;
+    border:1px solid rgba(255,200,61,.22);
+    background:linear-gradient(180deg,rgba(255,200,61,.1),rgba(255,255,255,.03));
+    min-height:148px;
+  }
+  .plink .num{font-size:11px;letter-spacing:.16em;font-weight:900;color:#8b929c}
+  .plink strong{font-size:26px;letter-spacing:-.03em}
+  .plink em{font-style:normal;color:#ffd66d;font-weight:800;font-size:14px}
+  .plink .go{margin-top:auto;padding-top:10px;color:#c7ccd4;font-size:13px;font-weight:800}
+  .plink:hover{border-color:#ffc83d;background:rgba(255,200,61,.16)}
   .statement{
     margin-top:40px;padding:30px;border-left:4px solid #ffc83d;
     background:linear-gradient(90deg,rgba(255,200,61,.08),rgba(255,200,61,.01));
@@ -166,7 +189,7 @@
   @media(max-width:900px){
     .hero{grid-template-columns:1fr;min-height:auto;padding-top:54px}
     .metric .big{font-size:68px}
-    .cards{grid-template-columns:1fr}
+    .cards,.product-links{grid-template-columns:1fr}
     .grid2{grid-template-columns:1fr}
     .community{grid-template-columns:1fr 1fr}
     .t{grid-template-columns:64px 1fr}.t .status{grid-column:2}
@@ -379,6 +402,11 @@ html,body{overflow-x:hidden}
         <a class="btn primary" href="#building-history-full">查看完整建设史</a>
         <a class="btn ghost" href="#join">加入我们</a>
       </div>
+      <div class="actions product-actions">
+        <a class="btn ghost" href="https://allindoge.net" target="_blank" rel="noopener">AI 搜 ↗</a>
+        <a class="btn ghost" href="https://luflux.ai" target="_blank" rel="noopener">画布 ↗</a>
+        <a class="btn ghost" href="https://nft.allindoge.net" target="_blank" rel="noopener">NFT ↗</a>
+      </div>
     </div>
     <div class="metric">
       <div class="small">COMMUNITY STAGE GOAL</div>
@@ -484,22 +512,46 @@ html,body{overflow-x:hidden}
       <h2>现在的 Allindoge，已经不只是“一个 AI 对话框”。</h2>
       <p class="lead">项目真正可贵的一点，是团队没有停在叙事上，而是一直在交产品、改底层、修体验。从 Web3 研究与 Agent 能力，到 Canvas 可视化创作和 AI 短剧生产，产品线还在继续往前长。更关键的是，这些能力最终都指向同一个方向——让 AI 不只回答，而是参与完整工作流。</p>
 
+      <div class="product-links">
+        <a class="plink" href="https://allindoge.net" target="_blank" rel="noopener">
+          <span class="num">AI SEARCH</span>
+          <strong>AI 搜</strong>
+          <em>allindoge.net</em>
+          <span class="go">打开产品 ↗</span>
+        </a>
+        <a class="plink" href="https://luflux.ai" target="_blank" rel="noopener">
+          <span class="num">CANVAS</span>
+          <strong>画布</strong>
+          <em>luflux.ai</em>
+          <span class="go">打开产品 ↗</span>
+        </a>
+        <a class="plink" href="https://nft.allindoge.net" target="_blank" rel="noopener">
+          <span class="num">NFT</span>
+          <strong>NFT</strong>
+          <em>nft.allindoge.net</em>
+          <span class="go">打开产品 ↗</span>
+        </a>
+      </div>
+
       <div class="cards">
-        <div class="card">
-          <div class="num">RESEARCH · AGENT</div>
-          <h3>Web3 AI / AgentOS</h3>
-          <p>连接市场信息、文档与工具，让用户用自然语言完成研究、分析与任务拆解，并继续向更完整的 Agent 执行能力演进。</p>
-        </div>
-        <div class="card">
+        <a class="card" href="https://allindoge.net" target="_blank" rel="noopener">
+          <div class="num">AI SEARCH · AGENT</div>
+          <h3>AI 搜 / Web3 AI</h3>
+          <p>连接市场信息、文档与工具，用自然语言完成研究、分析与任务拆解。入口：allindoge.net</p>
+          <span class="card-go">打开 allindoge.net ↗</span>
+        </a>
+        <a class="card" href="https://luflux.ai" target="_blank" rel="noopener">
           <div class="num">CANVAS · CREATION</div>
-          <h3>AI Canvas 创作平台</h3>
-          <p>用画布式节点组织视频生产流程。近期更新已覆盖节点连接、流程预览、项目保存与恢复、多角色连续视频生成，以及 Canvas 自适应模块优化。</p>
-        </div>
-        <div class="card">
-          <div class="num">AI SHORT DRAMA</div>
-          <h3>AI 短剧，从工具变成作品</h3>
-          <p>Allindoge 不只是做生成工具，也在用自己的工作流持续制作 Web3 AI 短剧，用真实内容验证生产流程，并把创作者纳入生态。</p>
-        </div>
+          <h3>画布 / AI Canvas</h3>
+          <p>用画布式节点组织视频生产流程。节点连接、流程预览、项目保存恢复、多角色连续视频生成。入口：luflux.ai</p>
+          <span class="card-go">打开 luflux.ai ↗</span>
+        </a>
+        <a class="card" href="https://nft.allindoge.net" target="_blank" rel="noopener">
+          <div class="num">NFT</div>
+          <h3>官方 NFT</h3>
+          <p>查看与持有 Allindoge NFT，参与社区身份与后续权益。入口：nft.allindoge.net</p>
+          <span class="card-go">打开 nft.allindoge.net ↗</span>
+        </a>
       </div>
 
       <div class="statement">研究，不再只是研究。<br/>创作，也不再只是创作。<br/>它们最终会汇入同一个 Agent 工作流。</div>
@@ -1118,7 +1170,7 @@ html,body{overflow-x:hidden}
   </section>
 
 <footer>
-  <div class="wrap">ALLINDOGE · BUILDING SINCE 2024.12.10 · AS OF 2026.09.22 · 我们仍在路上 · 一起走向 100M 起航 · 𝕏 @allindoge_alpha · TG @ALLINDOGE_CHAT · QQ 529223380</div>
+  <div class="wrap">ALLINDOGE · AI搜 allindoge.net · 画布 luflux.ai · NFT nft.allindoge.net · 𝕏 @allindoge_alpha · TG @ALLINDOGE_CHAT · QQ 529223380</div>
 </footer>
 
 
