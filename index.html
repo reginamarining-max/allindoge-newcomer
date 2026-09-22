@@ -124,6 +124,15 @@
   .card h3{font-size:22px;margin:12px 0 8px}
   .card p{color:#9ca3ad;margin:0;font-size:15px}
   .card-go{display:inline-block;margin-top:16px;color:#ffc83d;font-weight:800;font-size:13px}
+  .chartbox{
+    margin-top:24px;border:1px solid rgba(255,255,255,.09);border-radius:24px;overflow:hidden;background:#0b0f14
+  }
+  .chartbox iframe{display:block;width:100%;height:560px;border:0;background:#0b0f14}
+  .carow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px}
+  .ca{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:#ffd66d;
+    background:#131922;padding:10px 12px;border-radius:10px;word-break:break-all;max-width:100%
+  }
   .product-links{
     display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px
   }
@@ -299,6 +308,7 @@
 @media(max-width:560px){
   .history-embed .history-futurebox{padding:22px}
   h1{font-size:44px}
+  .chartbox iframe{height:420px}
 }
 html,body{overflow-x:hidden}
 
@@ -372,6 +382,7 @@ html,body{overflow-x:hidden}
       <a href="#top" data-section="top">开头</a>
       <a href="#what" data-section="what">5分钟看懂</a>
       <a href="#products" data-section="products">产品生态</a>
+      <a href="#chart" data-section="chart">实时K线</a>
       <a href="#roadmap" data-section="roadmap">发展路线</a>
       <a href="#building-history-full" data-section="building-history-full">建设史</a>
       <a href="#join" data-section="join">加入我们</a>
@@ -384,6 +395,7 @@ html,body{overflow-x:hidden}
   <a href="#what" data-section="what"><span>5分钟看懂</span><i></i></a>
   <a href="#proof" data-section="proof"><span>建设天数</span><i></i></a>
   <a href="#products" data-section="products"><span>产品生态</span><i></i></a>
+  <a href="#chart" data-section="chart"><span>实时K线</span><i></i></a>
   <a href="#roadmap" data-section="roadmap"><span>发展路线</span><i></i></a>
   <a href="#community" data-section="community"><span>社区共建</span><i></i></a>
   <a href="#vision" data-section="vision"><span>100M起航</span><i></i></a>
@@ -406,6 +418,7 @@ html,body{overflow-x:hidden}
         <a class="btn ghost" href="https://allindoge.net" target="_blank" rel="noopener">AI 搜 ↗</a>
         <a class="btn ghost" href="https://luflux.ai" target="_blank" rel="noopener">画布 ↗</a>
         <a class="btn ghost" href="https://nft.allindoge.net" target="_blank" rel="noopener">NFT ↗</a>
+        <a class="btn ghost" href="#chart">实时 K 线</a>
       </div>
     </div>
     <div class="metric">
@@ -555,6 +568,28 @@ html,body{overflow-x:hidden}
       </div>
 
       <div class="statement">研究，不再只是研究。<br/>创作，也不再只是创作。<br/>它们最终会汇入同一个 Agent 工作流。</div>
+    </div>
+  </section>
+
+  <section class="section" id="chart">
+    <div class="wrap">
+      <div class="kicker">LIVE CHART · SOLANA</div>
+      <h2>实时 K 线，点开就能看。</h2>
+      <p class="lead">Grok 和 X 本身不提供实时 K 线。行情看 DexScreener。下面是 ALLINDOGE / SOL 的实时图，也可以复制 CA 发到群里。</p>
+      <div class="ctaRow" style="margin-top:22px">
+        <a class="btn primary" href="https://dexscreener.com/solana/HyDKNdnhZNVYQMruBevbNsUWruA9STmAQrS4srXApump" target="_blank" rel="noopener">打开 DexScreener K 线 ↗</a>
+        <a class="btn ghost" href="https://birdeye.so/token/HyDKNdnhZNVYQMruBevbNsUWruA9STmAQrS4srXApump?chain=solana" target="_blank" rel="noopener">Birdeye ↗</a>
+        <a class="btn ghost" href="https://jup.ag/tokens/HyDKNdnhZNVYQMruBevbNsUWruA9STmAQrS4srXApump" target="_blank" rel="noopener">Jupiter ↗</a>
+      </div>
+      <div class="carow">
+        <span class="tiny">CA</span>
+        <code class="ca" id="tokenCa">HyDKNdnhZNVYQMruBevbNsUWruA9STmAQrS4srXApump</code>
+        <button class="btn ghost" type="button" data-copy="HyDKNdnhZNVYQMruBevbNsUWruA9STmAQrS4srXApump" id="copyCa">复制 CA</button>
+      </div>
+      <div class="chartbox">
+        <iframe title="ALLINDOGE 实时 K 线" src="https://dexscreener.com/solana/5Ln4d8fXeU3gCCneHArHkTNzxnzMaLJxnBwufUx2wPcm?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartDefaultOnMobile=1&chartTheme=dark&theme=dark&chartStyle=1&chartType=usd&interval=60" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="tiny" style="margin-top:14px">仅展示公开行情，不构成价格预测、收益承诺或投资建议。交易有风险，请自行判断。</div>
     </div>
   </section>
 
@@ -1170,7 +1205,7 @@ html,body{overflow-x:hidden}
   </section>
 
 <footer>
-  <div class="wrap">ALLINDOGE · AI搜 allindoge.net · 画布 luflux.ai · NFT nft.allindoge.net · 𝕏 @allindoge_alpha · TG @ALLINDOGE_CHAT · QQ 529223380</div>
+  <div class="wrap">ALLINDOGE · CA HyDKNdnhZNVYQMruBevbNsUWruA9STmAQrS4srXApump · AI搜 allindoge.net · 画布 luflux.ai · NFT nft.allindoge.net · 𝕏 @allindoge_alpha · TG @ALLINDOGE_CHAT · QQ 529223380</div>
 </footer>
 
 
@@ -1193,6 +1228,7 @@ html,body{overflow-x:hidden}
     {id:"what", name:"5分钟看懂项目"},
     {id:"proof", name:"已经建设 651 天"},
     {id:"products", name:"现在的产品"},
+    {id:"chart", name:"实时K线"},
     {id:"roadmap", name:"发展路线"},
     {id:"community", name:"社区共建"},
     {id:"vision", name:"100M 起航"},
@@ -1265,6 +1301,18 @@ html,body{overflow-x:hidden}
   window.addEventListener("scroll", onScroll, {passive:true});
   window.addEventListener("resize", onScroll);
   onScroll();
+
+  document.addEventListener("click", function(e){
+    var btn = e.target.closest("[data-copy]");
+    if(!btn) return;
+    var text = btn.getAttribute("data-copy");
+    if(!text || !navigator.clipboard) return;
+    navigator.clipboard.writeText(text).then(function(){
+      var prev = btn.textContent;
+      btn.textContent = "已复制";
+      setTimeout(function(){ btn.textContent = prev; }, 1600);
+    });
+  });
 })();
 
 </script>
