@@ -1,0 +1,1198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Allindoge｜新人项目介绍</title>
+<meta name="description" content="5分钟看懂 Allindoge：从社区共建，到 Web3 AI 工作台，再到 Agent 执行层。"/>
+<meta name="theme-color" content="#07090c"/>
+<link rel="icon" type="image/svg+xml" href="./favicon.svg"/>
+<style>
+*{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:#07090c;
+    color:#f6f7f8;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",Inter,Arial,sans-serif;
+    line-height:1.65;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1180px,92vw);margin:0 auto}
+  .nav{
+    position:sticky;top:0;z-index:30;
+    backdrop-filter:blur(18px);
+    background:rgba(7,9,12,.86);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .navin{height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{font-weight:900;letter-spacing:.04em;white-space:nowrap}
+  .brand b{color:#ffc83d}
+  .links{display:flex;gap:6px;color:#b8bdc7;font-size:13px;flex-wrap:wrap;justify-content:flex-end}
+  .links a{
+    padding:7px 10px;border-radius:999px;color:#b8bdc7;border:1px solid transparent;
+  }
+  .links a.is-active{
+    color:#111;background:#ffc83d;border-color:#ffc83d;font-weight:800;
+  }
+  .progress{
+    height:2px;background:rgba(255,255,255,.08);
+  }
+  .progress > i{
+    display:block;height:100%;width:0;
+    background:#ffc83d;box-shadow:0 0 12px rgba(255,200,61,.45);
+  }
+  .spy{
+    position:fixed;right:18px;top:50%;transform:translateY(-50%);
+    z-index:28;display:flex;flex-direction:column;gap:8px;
+  }
+  .spy a{
+    display:flex;align-items:center;justify-content:flex-end;gap:10px;
+    color:#8b929c;font-size:12px;font-weight:700;letter-spacing:.04em;
+  }
+  .spy a span{opacity:.0;transform:translateX(6px);transition:all .18s ease;white-space:nowrap}
+  .spy a i{
+    width:8px;height:8px;border-radius:50%;background:#3a414b;
+    border:1px solid rgba(255,200,61,.25);flex:0 0 8px;
+  }
+  .spy a:hover span,.spy a.is-active span{opacity:1;transform:none}
+  .spy a.is-active{color:#ffd66d}
+  .spy a.is-active i{background:#ffc83d;box-shadow:0 0 0 4px rgba(255,200,61,.16);border-color:#ffc83d}
+  @media(max-width:900px){
+    .spy{display:none}
+    .links a{padding:6px 8px;font-size:12px}
+  }
+  .hero{
+    min-height:720px;
+    display:grid;
+    grid-template-columns:1.35fr .85fr;
+    gap:44px;
+    align-items:center;
+    padding:76px 0 64px;
+    position:relative;
+  }
+  .hero:before{
+    content:"";
+    position:absolute;inset:-120px auto auto -220px;
+    width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,200,61,.24),transparent 66%);
+    filter:blur(10px);pointer-events:none;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:8px 12px;border:1px solid rgba(255,200,61,.24);
+    border-radius:999px;color:#ffd66d;background:rgba(255,200,61,.07);
+    font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  }
+  h1{font-size:clamp(52px,7.4vw,104px);line-height:.95;margin:26px 0 24px;letter-spacing:-.055em}
+  .grad{background:linear-gradient(90deg,#fff 0%,#ffd65a 45%,#f59d22 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{font-size:20px;color:#b9bec8;max-width:760px;margin:0 0 30px}
+  .actions{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{padding:13px 18px;border-radius:12px;font-weight:800;font-size:14px;border:1px solid transparent;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer}
+  .btn.primary,.btn.qq,.history-embed .history-back{background:#ffc83d;color:#111;border-color:#ffc83d}
+  .btn.ghost,.btn.x,.xlink{border:1px solid rgba(255,200,61,.28);color:#ffd66d;background:rgba(255,200,61,.07)}
+  .btn.primary:hover,.btn.qq:hover,.history-embed .history-back:hover{background:#ffd66d;border-color:#ffd66d;color:#111}
+  .btn.ghost:hover,.btn.x:hover,.xlink:hover{background:rgba(255,200,61,.14);color:#ffe39a}
+  .metric{
+    border:1px solid rgba(255,255,255,.1);
+    background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+    border-radius:28px;padding:28px;box-shadow:0 18px 80px rgba(0,0,0,.32)
+  }
+  .metric .small{color:#a5abb5;font-size:13px;text-transform:uppercase;letter-spacing:.14em}
+  .metric .big{font-size:84px;line-height:.95;font-weight:1000;margin:12px 0;color:#ffc83d;letter-spacing:-.06em}
+  .metric .cap{font-size:28px;font-weight:900}
+  .metric .note{margin-top:16px;color:#9ca3ad;font-size:13px}
+  .section{padding:92px 0;border-top:1px solid rgba(255,255,255,.07)}
+  .kicker{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ffc83d;font-weight:900}
+  h2{font-size:clamp(34px,4.5vw,58px);line-height:1.08;margin:12px 0 18px;letter-spacing:-.035em}
+  .lead{max-width:840px;color:#b6bbc5;font-size:18px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+  .card{
+    border:1px solid rgba(255,255,255,.09);
+    background:#0d1117;border-radius:20px;padding:24px;
+    min-height:210px;
+  }
+  .card .num{font-size:12px;color:#777f8d;font-weight:900;letter-spacing:.16em}
+  .card h3{font-size:22px;margin:12px 0 8px}
+  .card p{color:#9ca3ad;margin:0;font-size:15px}
+  .statement{
+    margin-top:40px;padding:30px;border-left:4px solid #ffc83d;
+    background:linear-gradient(90deg,rgba(255,200,61,.08),rgba(255,200,61,.01));
+    font-size:clamp(26px,3vw,42px);font-weight:900;line-height:1.28;
+  }
+  .timeline{margin-top:44px;display:grid;gap:16px}
+  .t{
+    display:grid;grid-template-columns:84px 1fr auto;
+    gap:18px;align-items:start;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.08)
+  }
+  .tag{font-size:12px;font-weight:900;color:#111;background:#ffc83d;padding:5px 9px;border-radius:999px;text-align:center}
+  .t h3{margin:0 0 6px;font-size:22px}
+  .t p{margin:0;color:#9da5af}
+  .status{font-size:12px;color:#8fd8ae;border:1px solid rgba(143,216,174,.28);padding:5px 9px;border-radius:999px;white-space:nowrap}
+  .status.build{color:#ffd66d;border-color:rgba(255,214,109,.28)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:38px}
+  .flow{
+    border:1px solid rgba(255,255,255,.09);background:#0c1016;border-radius:22px;padding:26px;
+  }
+  .flowline{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .pill{padding:10px 13px;border-radius:999px;background:#151b23;color:#dce0e6;font-weight:800;font-size:14px}
+  .arrow{align-self:center;color:#555}
+  .community{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px
+  }
+  .step{padding:18px;border-radius:16px;background:#0e1319;border:1px solid rgba(255,255,255,.08);min-height:125px}
+  .step b{display:block;color:#ffc83d;margin-bottom:6px}
+  .step span{font-size:14px;color:#9fa6b1}
+  .manifesto{
+    border-radius:30px;padding:46px;
+    background:
+      radial-gradient(circle at 85% 20%,rgba(255,200,61,.22),transparent 30%),
+      linear-gradient(145deg,#111821,#0b0f14);
+    border:1px solid rgba(255,255,255,.09)
+  }
+  .manifesto h2{max-width:900px}
+  .manifesto p{font-size:18px;color:#b3bac4;max-width:860px}
+  .quote{
+    margin:32px 0 0;
+    font-size:clamp(32px,4vw,58px);font-weight:1000;line-height:1.13;letter-spacing:-.035em
+  }
+  .risk{
+    margin-top:28px;font-size:13px;color:#7f8792;
+    border-top:1px solid rgba(255,255,255,.08);padding-top:18px
+  }
+  footer{padding:36px 0 60px;color:#747c88;font-size:13px}
+  .src{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);color:#777f89}
+  .src b{color:#aeb5bf}
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr;min-height:auto;padding-top:54px}
+    .metric .big{font-size:68px}
+    .cards{grid-template-columns:1fr}
+    .grid2{grid-template-columns:1fr}
+    .community{grid-template-columns:1fr 1fr}
+    .t{grid-template-columns:64px 1fr}.t .status{grid-column:2}
+    .links{display:flex;max-width:70%;}
+  }
+  @media(max-width:560px){
+    .community{grid-template-columns:1fr}
+    h1{font-size:54px}
+    .metric{padding:22px}
+    .metric .big{font-size:60px}
+    .manifesto{padding:28px}
+  }
+
+  .proof{
+    display:grid;grid-template-columns:.78fr 1.22fr;gap:22px;margin-top:38px
+  }
+  .daybox{
+    border:1px solid rgba(255,200,61,.24);
+    background:linear-gradient(160deg,rgba(255,200,61,.12),rgba(255,200,61,.025));
+    border-radius:24px;padding:30px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between
+  }
+  .daybox .days{font-size:clamp(70px,8vw,112px);line-height:.88;font-weight:1000;color:#ffc83d;letter-spacing:-.065em}
+  .daybox .since{font-size:14px;color:#a9b0ba;letter-spacing:.08em;text-transform:uppercase}
+  .daybox .date{font-size:24px;font-weight:900}
+  .tweetbox{
+    border:1px solid rgba(255,255,255,.09);background:#0d1117;border-radius:24px;padding:28px
+  }
+  .tweethead{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+  .tweethead strong{font-size:17px}
+  .xlink{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border-radius:12px;background:rgba(255,200,61,.07);color:#ffd66d;border:1px solid rgba(255,200,61,.28);font-size:13px;font-weight:900}
+  .tweetquote{font-size:16px;color:#c7ccd4;margin:0}
+  .tweetquote b{color:#fff}
+  .tweetstats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+  .tweetstat{padding:16px;background:#131922;border-radius:15px}
+  .tweetstat strong{display:block;font-size:27px;color:#ffc83d}
+  .tweetstat span{font-size:12px;color:#8e97a3}
+  .trustline{
+    margin-top:22px;color:#9ea6b1;font-size:14px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08)
+  }
+  .join{
+    display:grid;grid-template-columns:1fr .75fr;gap:24px;align-items:center;margin-top:36px
+  }
+  .joincard{
+    border:1px solid rgba(255,255,255,.09);background:#0d1117;border-radius:24px;padding:30px
+  }
+  .joincard h3{font-size:30px;margin:8px 0 10px}
+  .joincard p{color:#a8afb9;margin:0 0 22px}
+  .groupnum{
+    display:inline-block;font-size:clamp(34px,5vw,58px);font-weight:1000;letter-spacing:-.04em;color:#ffc83d;
+    padding:8px 0 16px
+  }
+  .qrbox{
+    background:#f4f5f7;border-radius:24px;padding:16px;display:flex;align-items:center;justify-content:center
+  }
+  .qrbox img{width:100%;max-width:430px;border-radius:16px;display:block}
+  .tiny{font-size:12px;color:#747d89}
+  .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+  .btn.x{background:rgba(255,200,61,.07);color:#ffd66d}
+  .btn.qq{background:#ffc83d;color:#111}
+  .milestones{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+  .mile{border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:17px;background:#0e1319}
+  .mile strong{display:block;color:#fff;font-size:18px}
+  .mile span{display:block;color:#868f9c;font-size:12px;margin-top:4px}
+  @media(max-width:900px){
+    .proof,.join{grid-template-columns:1fr}
+    .tweetstats{grid-template-columns:1fr 1fr 1fr}
+    .milestones{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:560px){
+    .tweetstats{grid-template-columns:1fr}
+    .milestones{grid-template-columns:1fr}
+  }
+
+
+.history-embed{padding:0 0 20px}
+.history-embed .history-top{
+  padding:92px 0 34px;border-top:1px solid rgba(255,255,255,.07)
+}
+.history-embed .history-top h2{
+  font-size:clamp(42px,5.5vw,72px);line-height:1.02;margin:12px 0 18px;letter-spacing:-.045em
+}
+.history-embed .history-top p{max-width:880px;color:#aeb5bf;font-size:18px}
+.history-embed .history-back{
+  display:inline-flex;margin-top:18px;padding:13px 18px;border-radius:12px;
+  background:#ffc83d;color:#111;font-weight:800;font-size:14px;border:1px solid #ffc83d
+}
+.history-embed .history-phase{padding:70px 0;border-top:1px solid rgba(255,255,255,.07)}
+.history-embed .history-phase-head{display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:start;margin-bottom:32px}
+.history-embed .history-phase-head p{grid-column:2;color:#9ea6b1;margin:0;max-width:760px}
+.history-embed .history-phase-no{color:#ffc83d;font-size:12px;font-weight:900;letter-spacing:.18em;padding-top:12px}
+.history-embed .history-phase h2{font-size:clamp(32px,4vw,54px);line-height:1.08;letter-spacing:-.035em;margin:0 0 10px}
+.history-embed .history-events{margin-left:150px;border-left:1px solid rgba(255,255,255,.11);padding-left:28px;display:grid;gap:14px}
+.history-embed .history-event{position:relative;display:grid;grid-template-columns:120px 1fr;gap:18px;padding:22px;border:1px solid rgba(255,255,255,.08);background:#0d1117;border-radius:18px}
+.history-embed .history-event:before{content:"";position:absolute;width:9px;height:9px;border-radius:50%;left:-33px;top:32px;background:#ffc83d;box-shadow:0 0 0 6px rgba(255,200,61,.08)}
+.history-embed .history-event-date{font-weight:900;color:#d7dae0;font-variant-numeric:tabular-nums}
+.history-embed .history-event h3{font-size:21px;margin:2px 0 7px}
+.history-embed .history-event p{color:#9da5b0;margin:0 0 11px;font-size:15px}
+.history-embed .history-tweet-link{font-size:12px;color:#ffc83d;font-weight:850}
+.history-embed .history-phasenav{padding:24px 0 8px;display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.history-embed .history-phasejump{padding:14px;border:1px solid rgba(255,255,255,.08);background:#0c1117;border-radius:14px;font-size:13px;color:#aeb5bf}
+.history-embed .history-phasejump b{display:block;color:#fff;font-size:12px;margin-bottom:3px}
+.history-embed .history-futurebox{padding:40px;border-radius:28px;border:1px solid rgba(255,200,61,.18);background:radial-gradient(circle at 90% 10%,rgba(255,200,61,.15),transparent 32%),#0d1218}
+.history-embed .history-nextgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.history-embed .history-next{padding:20px;border-radius:16px;background:#121820;border:1px solid rgba(255,255,255,.07)}
+.history-embed .history-next b{display:block;margin-bottom:6px}
+.history-embed .history-next span{font-size:13px;color:#8d96a3}
+@media(max-width:900px){
+  .history-embed .history-phasenav{grid-template-columns:1fr 1fr}
+  .history-embed .history-phase-head{grid-template-columns:1fr}
+  .history-embed .history-phase-head p{grid-column:1}
+  .history-embed .history-events{margin-left:0;padding-left:20px}
+  .history-embed .history-event{grid-template-columns:1fr}
+  .history-embed .history-event:before{left:-25px}
+  .history-embed .history-nextgrid{grid-template-columns:1fr}
+}
+
+
+  .locator{
+    display:none;
+  }
+  @media(max-width:900px){
+    .locator{
+      display:block;position:fixed;left:12px;right:12px;bottom:14px;z-index:40;
+    }
+    .locator-bar{
+      display:flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:16px;
+      background:rgba(7,9,12,.92);
+      border:1px solid rgba(255,200,61,.28);
+      backdrop-filter:blur(16px);
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    .locator-now{flex:1;min-width:0}
+    .locator-k{display:block;font-size:10px;letter-spacing:.14em;color:#ffc83d;font-weight:800}
+    .locator-t{display:block;font-size:14px;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .locator-pos{font-size:12px;color:#ffd66d;font-weight:800;white-space:nowrap}
+    .locator-btn{
+      border:0;background:#ffc83d;color:#111;font-weight:800;font-size:12px;
+      border-radius:10px;padding:8px 10px;
+    }
+    .locator-list{
+      display:none;margin-bottom:8px;padding:8px;
+      background:rgba(7,9,12,.96);border:1px solid rgba(255,200,61,.22);
+      border-radius:16px;max-height:52vh;overflow:auto;
+    }
+    .locator.open .locator-list{display:block}
+    .locator-list a{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding:11px 10px;border-radius:10px;color:#c6cbd3;font-size:13px;font-weight:700;
+    }
+    .locator-list a.is-active{background:rgba(255,200,61,.14);color:#ffd66d}
+    .locator-list a b{font-size:11px;color:#8b929c;font-weight:800}
+    body{padding-bottom:86px}
+  }
+
+.meta{margin-bottom:6px}
+.type{
+  display:inline-block;font-size:11px;font-weight:800;letter-spacing:.12em;
+  color:#ffd66d;text-transform:uppercase;
+}
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap navin">
+    <a class="brand" href="#top">ALLIN<b>DOGE</b></a>
+    <div class="links" id="pageNav">
+      <a href="#top" data-section="top">开头</a>
+      <a href="#what" data-section="what">5分钟看懂</a>
+      <a href="#products" data-section="products">产品生态</a>
+      <a href="#roadmap" data-section="roadmap">发展路线</a>
+      <a href="#building-history-full" data-section="building-history-full">建设史</a>
+      <a href="#join" data-section="join">加入我们</a>
+    </div>
+  </div>
+  <div class="progress" aria-hidden="true"><i id="readProgress"></i></div>
+</nav>
+<aside class="spy" id="spyNav" aria-label="页面位置">
+  <a href="#top" data-section="top"><span>开头</span><i></i></a>
+  <a href="#what" data-section="what"><span>5分钟看懂</span><i></i></a>
+  <a href="#proof" data-section="proof"><span>建设天数</span><i></i></a>
+  <a href="#products" data-section="products"><span>产品生态</span><i></i></a>
+  <a href="#roadmap" data-section="roadmap"><span>发展路线</span><i></i></a>
+  <a href="#community" data-section="community"><span>社区共建</span><i></i></a>
+  <a href="#vision" data-section="vision"><span>100M起航</span><i></i></a>
+  <a href="#building-history-full" data-section="building-history-full"><span>完整建设史</span><i></i></a>
+  <a href="#join" data-section="join"><span>加入我们</span><i></i></a>
+</aside>
+
+<main>
+  <section class="wrap hero" id="top">
+    <div>
+      <div class="eyebrow">NEWCOMER GUIDE · AS OF 2026.09.22</div>
+      <h1><span class="grad">5 分钟</span><br/>看懂 Allindoge</h1>
+      <p class="sub">从交易研究与 Web3 AI，到 Canvas 可视化创作、AI 短剧生产，再到未来的 Agent 链上自动执行。建设史统计截至 2026-09-22。我们仍在路上。加入我们吧，一起走向 100M 起航。</p>
+      <div class="actions">
+        <a class="btn primary" href="#what">5 分钟看懂项目</a>
+        <a class="btn primary" href="#building-history-full">查看完整建设史</a>
+        <a class="btn ghost" href="#join">加入我们</a>
+      </div>
+    </div>
+    <div class="metric">
+      <div class="small">COMMUNITY STAGE GOAL</div>
+      <div class="big">100M+</div>
+      <div class="cap">不是终点，<br/>只是新的起点。</div>
+      <div class="note">统计截至 2026-09-22。我们仍在路上。加入我们吧，一起走向 100M 起航。<br/>“100M 起步”是社区发展目标，不构成价格预测、收益承诺或投资保证。</div>
+    </div>
+  </section>
+
+  <section id="what" class="section">
+    <div class="wrap">
+      <div class="kicker">01 · WHAT IS ALLINDOGE</div>
+      <h2>它到底是 Meme、AI，还是 Web3 项目？</h2>
+      <p class="lead">更准确的理解是：Allindoge 正在尝试构建一个面向 Web3 用户的 AI 工作台，把过去分散在不同工具里的数据查询、项目研究、文档分析、内容生成，以及未来的 Agent 自动执行，逐步接进一个统一入口。</p>
+      <div class="statement">从“社区聚集人”，走向“产品留下人”。</div>
+      <div class="cards">
+        <div class="card"><div class="num">ORIGIN</div><h3>社区起点</h3><p>早期建立在 Solana 生态与 Meme 社区文化之上，强调长期参与、社区建设和持续投入。</p></div>
+        <div class="card"><div class="num">SHIFT</div><h3>从叙事到产品</h3><p>社区内容传播与 AI 产品开始并行推进，让项目不只依赖注意力，也开始积累真正可使用的产品能力。</p></div>
+        <div class="card"><div class="num">DIRECTION</div><h3>从工具到生态</h3><p>今天已经延伸到 Web3 研究、Canvas 工作流、AI 视频与短剧生产；未来继续向 Agent 自动执行与链上策略能力推进。</p></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="proof">
+    <div class="wrap">
+      <div class="kicker">02 · TIME IS THE HARDEST THING TO FAKE</div>
+      <h2>从 2024.12.10 到今天，<br/>已经坚持建设 651 天。</h2>
+      <p class="lead">Meme 项目每天都可以诞生，但真正稀缺的是：经历完整周期以后，社区还在、流动性还在、产品团队还在继续交版本。Allindoge 最值得新人先看的，不是一句口号，而是这条持续发生的建设轨迹。</p>
+
+      <div class="proof">
+        <div class="daybox">
+          <div>
+            <div class="since">BUILDING SINCE</div>
+            <div class="date">2024 · 12 · 10</div>
+          </div>
+          <div>
+            <div class="days">651+</div>
+            <div class="since">DAYS OF BUILDING</div>
+          </div>
+          <div class="tiny">统计截至 2026-09-22。从社区起步，到 Web3 AI、MCP、AgentOS、Canvas、AI 短剧。我们仍在路上。</div>
+        </div>
+
+        <div class="tweetbox">
+          <div class="tweethead">
+            <strong>官推曾用一组数据讲过“活下来”有多难</strong>
+            <a class="xlink" href="https://x.com/allindoge_alpha" target="_blank" rel="noopener">𝕏 @allindoge_alpha ↗</a>
+          </div>
+          <p class="tweetquote">官方账号曾整理并发布：<b>pump.fun 约 1860 万个代币中，68% 第一天就消失，90 天后仍存续的不到 5%，约 97% 撑不过第一年。</b> 这组数字在官推中的核心表达很简单——在 Meme 市场，真正难的不是发币，而是跨过时间、流动性与社区的淘汰。</p>
+          <div class="tweetstats">
+            <div class="tweetstat"><strong>68%</strong><span>官推所述：第一天即消失</span></div>
+            <div class="tweetstat"><strong>&lt;5%</strong><span>官推所述：90 天后仍存续</span></div>
+            <div class="tweetstat"><strong>97%</strong><span>官推所述：未撑过第一年</span></div>
+          </div>
+          <div class="trustline">所以我们更愿意把“靠谱”拆成能被观察的东西：<b>时间、持续交付、真实产品、持续迭代、社区仍在建设。</b> 这比任何一天的价格都更难伪造。</div>
+        </div>
+      </div>
+
+      <div class="milestones">
+        <div class="mile"><strong>社区持续存在</strong><span>不是一波热度结束就散场</span></div>
+        <div class="mile"><strong>产品持续更新</strong><span>从研究能力一路迭代到 Canvas</span></div>
+        <div class="mile"><strong>团队持续交版本</strong><span>不断修底层、补能力、做真实产品</span></div>
+        <div class="mile"><strong>路线持续扩张</strong><span>从会回答，走向会创作、会执行</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="why">
+    <div class="wrap">
+      <div class="kicker">03 · WHY AI × WEB3</div>
+      <h2>过去是人操作工具。<br/>未来可能是人告诉 AI 目标。</h2>
+      <p class="lead">Web3 用户今天往往要在行情工具、区块链浏览器、社交平台、项目文档、设计工具和交易入口之间不断切换。Agent 的价值，就是让这些工具逐渐从“你亲自操作”，变成“AI 按目标调用”。</p>
+      <div class="grid2">
+        <div class="flow">
+          <div class="kicker">TRADITIONAL</div>
+          <h3>今天的工作流</h3>
+          <div class="flowline">
+            <span class="pill">看行情</span><span class="arrow">→</span>
+            <span class="pill">查链上</span><span class="arrow">→</span>
+            <span class="pill">翻文档</span><span class="arrow">→</span>
+            <span class="pill">做内容</span><span class="arrow">→</span>
+            <span class="pill">自己执行</span>
+          </div>
+        </div>
+        <div class="flow">
+          <div class="kicker">AGENT NATIVE</div>
+          <h3>想去的方向</h3>
+          <div class="flowline">
+            <span class="pill">告诉目标</span><span class="arrow">→</span>
+            <span class="pill">AI 拆任务</span><span class="arrow">→</span>
+            <span class="pill">调用工具</span><span class="arrow">→</span>
+            <span class="pill">完成结果</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="products" class="section">
+    <div class="wrap">
+      <div class="kicker">04 · WHAT EXISTS TODAY</div>
+      <h2>现在的 Allindoge，已经不只是“一个 AI 对话框”。</h2>
+      <p class="lead">项目真正可贵的一点，是团队没有停在叙事上，而是一直在交产品、改底层、修体验。从 Web3 研究与 Agent 能力，到 Canvas 可视化创作和 AI 短剧生产，产品线还在继续往前长。更关键的是，这些能力最终都指向同一个方向——让 AI 不只回答，而是参与完整工作流。</p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="num">RESEARCH · AGENT</div>
+          <h3>Web3 AI / AgentOS</h3>
+          <p>连接市场信息、文档与工具，让用户用自然语言完成研究、分析与任务拆解，并继续向更完整的 Agent 执行能力演进。</p>
+        </div>
+        <div class="card">
+          <div class="num">CANVAS · CREATION</div>
+          <h3>AI Canvas 创作平台</h3>
+          <p>用画布式节点组织视频生产流程。近期更新已覆盖节点连接、流程预览、项目保存与恢复、多角色连续视频生成，以及 Canvas 自适应模块优化。</p>
+        </div>
+        <div class="card">
+          <div class="num">AI SHORT DRAMA</div>
+          <h3>AI 短剧，从工具变成作品</h3>
+          <p>Allindoge 不只是做生成工具，也在用自己的工作流持续制作 Web3 AI 短剧，用真实内容验证生产流程，并把创作者纳入生态。</p>
+        </div>
+      </div>
+
+      <div class="statement">研究，不再只是研究。<br/>创作，也不再只是创作。<br/>它们最终会汇入同一个 Agent 工作流。</div>
+    </div>
+  </section>
+
+  <section id="roadmap" class="section">
+    <div class="wrap">
+      <div class="kicker">05 · PRODUCT EVOLUTION</div>
+      <h2>从“会回答”到“会生产”，再到“会执行”。</h2>
+      <p class="lead">现在这条路线已经比早期更清晰：研究能力负责理解世界，Canvas 负责把想法变成内容，未来的执行型 Agent 则负责把目标进一步变成行动。不是堆功能，而是在逐层补全 AI 的工作闭环。</p>
+      <div class="timeline">
+        <div class="t">
+          <div class="tag">01</div>
+          <div><h3>Web3 AI 研究入口</h3><p>从浏览器端对话开始，把行情、项目、文档和 Web3 信息研究逐步放进统一入口。</p></div>
+          <div class="status">已形成基础</div>
+        </div>
+        <div class="t">
+          <div class="tag">02</div>
+          <div><h3>MCP + AgentOS</h3><p>让 AI 接入外部数据和工具，通过任务拆解、调用与反馈循环，从“回答问题”走向“完成研究任务”。</p></div>
+          <div class="status">持续迭代</div>
+        </div>
+        <div class="t">
+          <div class="tag">03</div>
+          <div><h3>Canvas AI 视频 / 短剧工作流</h3><p>画布式流程、多节点连接、流程预览、项目保存恢复、多角色连续视频生成，开始把复杂的 AI 视频生产变成可视化工作流。</p></div>
+          <div class="status">正在迭代</div>
+        </div>
+        <div class="t">
+          <div class="tag">04</div>
+          <div><h3>执行型 Agent</h3><p>让 Agent 不只输出答案，而是围绕目标规划步骤、调用工具、处理异常并推进任务完成。</p></div>
+          <div class="status build">Roadmap</div>
+        </div>
+        <div class="t">
+          <div class="tag">05</div>
+          <div><h3>链上 AI 机器人 / 策略执行</h3><p>项目未来规划方向包括让 AI 机器人参与链上策略执行、套利与收益策略自动化。该能力应以正式产品、权限控制和风险机制落地为准，不代表固定收益或无风险套利。</p></div>
+          <div class="status build">Future</div>
+        </div>
+      </div>
+      <div class="statement">Research → Create → Execute → On-chain Automation</div>
+    </div>
+  </section>
+
+  
+  <section id="community" class="section">
+    <div class="wrap">
+      <div class="kicker">06 · COMMUNITY BUILDS PRODUCT</div>
+      <h2>不是只有“大佬”才能建设项目。</h2>
+      <p class="lead">社区的价值，不是等产品完成后再来宣传，而是从早期测试、反馈、内容、设计、技术、翻译和新人教育等环节直接参与。普通用户的一条真实反馈，也可能最终变成正式版本的一部分。</p>
+      <div class="community">
+        <div class="step"><b>01 认识</b><span>先看懂项目、路线和当前阶段。</span></div>
+        <div class="step"><b>02 使用</b><span>真正去用产品，不靠口号理解它。</span></div>
+        <div class="step"><b>03 反馈</b><span>报告 Bug、提出需求、补充真实场景。</span></div>
+        <div class="step"><b>04 建设</b><span>技术、内容、设计、运营、翻译都能贡献。</span></div>
+        <div class="step"><b>05 治理</b><span>更深入地参与社区讨论与未来方向。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vision" class="section">
+    <div class="wrap">
+      <div class="manifesto">
+        <div class="kicker">07 · THE 100M START</div>
+        <h2>100M，不是我们想象力的终点。<br/>而是下一阶段的起跑线。</h2>
+        <p>项目真正要建立的，不只是一个 Token，也不只是一个 AI 页面，而是一套面向 Web3 用户的 AI 工作方式：研究可以进入 Canvas，Canvas 可以变成内容，Agent 可以继续执行任务，未来再把部分链上策略与自动化能力接入同一个体系。</p>
+        <div class="quote">不是让 AI 更会聊天。<br/><span class="grad">而是让 AI 研究、创作、执行，最后真正开始干活。</span></div>
+        <div class="risk">风险提示：Allindoge 属于加密/Web3 项目，仍面临价格波动、市场情绪、技术实现、产品落地和路线图延期等风险。AI 机器人、套利及链上收益自动化属于高风险能力方向，任何真实上线版本都应以权限控制、策略透明度和风险管理为前提。“100M 起步”为社区愿景与发展目标，不应理解为价格、估值、固定收益或无风险套利承诺。</div>
+      </div>
+    </div>
+  </section>
+
+
+  
+  <section class="section">
+    <div class="wrap">
+      <div class="kicker">08 · FOR NEWCOMERS</div>
+      <h2>第一次来到这里，不需要急着相信。</h2>
+      <p class="lead">先去看它做过什么。去试产品。去看版本迭代。去社区里看看大家正在建设什么。然后再判断，这是不是一件你愿意长期参与的事情。</p>
+      <div class="statement">你不是来围观一个项目。<br/>你可以参与把它做出来。</div>
+      <div class="ctaRow" style="margin-top:26px">
+        <a class="btn primary" href="#join">加入我们</a>
+        <a class="btn ghost" href="https://x.com/allindoge_alpha" target="_blank" rel="noopener">官方 X ↗</a>
+      </div>
+      
+    </div>
+  </section>
+</main>
+
+  <section class="section" id="history-jump">
+    <div class="wrap">
+      <div class="kicker">BUILDING HISTORY · SINCE 2024.12.10</div>
+      <h2>如果你想知道这个项目靠不靠谱，<br/>不要只看今天。去看它一路做过什么。</h2>
+      <p class="lead">从 AI Agent Alpha、MCP、大版本、NFT、固定周更，到 2026 年的 Canvas、AI 短剧、多角色视频和 Rust 核心模块重写。我们把公开可追溯的关键节点单独做成了一条建设时间线。</p>
+      <div class="statement">这不是“未来会做什么”。<br/>这是“过去已经一步一步做过什么”。</div>
+      <div class="ctaRow" style="margin-top:24px">
+        <a class="btn primary" href="#building-history-full">查看完整建设史</a>
+        <a class="btn ghost" href="https://x.com/allindoge_alpha" target="_blank" rel="noopener">官方 X ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="building-history-full" class="history-embed">
+    <div class="wrap history-top">
+      <div class="kicker">FULL BUILDING HISTORY · SINCE 2024.12.10 · AS OF 2026.09.22</div>
+      <h2>一路走来，<br/><span class="grad">每一个节点都能回看。</span></h2>
+      <p>统计截至 2026-09-22。我们仍在路上。加入我们吧，一起走向 100M 起航。下面是公开可追溯的关键节点；每个节点都可以点进当时的官方 X 原帖。</p>
+      <a class="history-back" href="#join">加入我们，一起走向 100M 起航 →</a>
+    </div>
+    <div class="wrap">
+      
+  <div class="history-phasenav">
+    <a class="history-phasejump" href="#phase-1"><b>PHASE 01</b>起点与方向探索</a><a class="history-phasejump" href="#phase-2"><b>PHASE 02</b>从 Meme 到 AI 产品</a><a class="history-phasejump" href="#phase-3"><b>PHASE 03</b>产品化与治理</a><a class="history-phasejump" href="#phase-4"><b>PHASE 04</b>从 AI 助手到创作平台</a><a class="history-phasejump" href="#phase-5"><b>PHASE 05</b>Canvas / AI 短剧 / Agent</a>
+  </div>
+  
+      <section class="history-phase" id="phase-1">
+        <div class="history-phase-head">
+          <div class="history-phase-no">PHASE 01</div>
+          <h2>起点与方向探索</h2>
+          <p>从 Meme 社区起步，逐步把 AI、钱包与 Web3 产品方向写进公开路线。</p>
+        </div>
+        <div class="history-events">
+          
+          <article class="history-event" data-type="community">
+            <div class="history-event-date">2024-12-10</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-community">社区 / 治理</span></div>
+              <h3>项目起点</h3>
+              <p>项目一周年官推在 2025-12-10 回溯确认：Exactly one year。早期首发帖未能稳定回捞，但这一日期可由周年帖反向确认。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1998682600781627489" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="community">
+            <div class="history-event-date">2024-12-24</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-community">社区 / 治理</span></div>
+              <h3>最早可稳定回捞的社区寄语</h3>
+              <p>圣诞寄语里已经出现 “ALL IN = ALL WIN”。社区文化开始留下连续公开记录。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1871512683729805652" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="partner">
+            <div class="history-event-date">2025-01-07</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-partner">合作</span></div>
+              <h3>第一次可确认的对外合作</h3>
+              <p>与 SonicSVM 合作，项目开始尝试把社区叙事与 Solana 技术生态连接起来。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1876652700840173624" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="vision">
+            <div class="history-event-date">2025-01-14</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-vision">方向</span></div>
+              <h3>第一次明确 Web3 + AI 产品方向</h3>
+              <p>官推写出 Web3 wallet & AI agent for TikTok，并同步提出 TikTok Wallet / TK Bot。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1879049668577132564" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="vision">
+            <div class="history-event-date">2025-01-23</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-vision">方向</span></div>
+              <h3>AI Agent 即将上线</h3>
+              <p>项目从“想做 AI”进入产品预告阶段。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1882342254301565330" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="milestone">
+            <div class="history-event-date">2025-01-25</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-milestone">里程碑</span></div>
+              <h3>接近 2M / 2025 产品路线成型</h3>
+              <p>同一天既有市值节点，也有从 TikTok 矩阵继续切向 New AI Agent 的路线表达。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1883083437890031864" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="history-phase" id="phase-2">
+        <div class="history-phase-head">
+          <div class="history-phase-no">PHASE 02</div>
+          <h2>从 Meme 到 AI 产品</h2>
+          <p>AI Agent 真正上线，MCP 成为基础设施叙事，产品开始兑现。</p>
+        </div>
+        <div class="history-events">
+          
+          <article class="history-event" data-type="community">
+            <div class="history-event-date">2025-02-24</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-community">社区 / 治理</span></div>
+              <h3>Allindoge Foundation</h3>
+              <p>宣布成立 Foundation 并公开捐赠地址，组织与治理开始被正式写进公开叙事。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1894020820764344631" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="partner">
+            <div class="history-event-date">2025-02-27</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-partner">合作</span></div>
+              <h3>与 Bitroot 合作</h3>
+              <p>合作与社区空投同步展开，外部生态连接继续增加。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1894952748053078322" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="product">
+            <div class="history-event-date">2025-03-14</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-product">产品</span></div>
+              <h3>AI Agent Alpha 正式落地</h3>
+              <p>第一版可使用产品上线：market intel、trading strategies、community-powered AI。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1900428212397822154" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="product">
+            <div class="history-event-date">2025-04-18</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-product">产品</span></div>
+              <h3>把 Allindoge AI 作为搜索入口推广</h3>
+              <p>产品开始不只讲“AI Agent”，而是尝试成为日常研究入口。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1913128579543842847" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="partner">
+            <div class="history-event-date">2025-05-30</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-partner">合作</span></div>
+              <h3>与 4Metas 战略合作</h3>
+              <p>合作文案涉及 land NFTs / TON Bot 等方向。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1928361555399430554" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="product">
+            <div class="history-event-date">2025-06-16</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-product">产品</span></div>
+              <h3>MCP 被放到基础设施层</h3>
+              <p>官推把 MCP 定位为 Agent 时代基础设施，并强调已进入真实应用。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1934483495306621110" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="milestone">
+            <div class="history-event-date">2025-06-19</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-milestone">里程碑</span></div>
+              <h3>第一次突破 10M</h3>
+              <p>官推写道：从 0 到 10M 用了 190 天。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1935577969021665289" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="milestone">
+            <div class="history-event-date">2025-06-21</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-milestone">里程碑</span></div>
+              <h3>第一次突破 20M</h3>
+              <p>两天后继续突破 20M；官推强调 “talk less, deliver more”。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1936320114154147893" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="partner">
+            <div class="history-event-date">2025-06-28</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-partner">合作</span></div>
+              <h3>与 Satoshi Network 合作</h3>
+              <p>继续拓展外部生态与用户入口。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1938870506092146856" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="history-phase" id="phase-3">
+        <div class="history-phase-head">
+          <div class="history-phase-no">PHASE 03</div>
+          <h2>产品化与治理</h2>
+          <p>大版本、NFT、固定周更与一周年，把“持续建设”变成可追溯记录。</p>
+        </div>
+        <div class="history-events">
+          
+          <article class="history-event" data-type="product">
+            <div class="history-event-date">2025-08-07</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-product">产品</span></div>
+              <h3>MCP / 多模态 / 历史记录 / 分享一起上线</h3>
+              <p>一次完整大版本，把对话连续性、分享、文档与多模态能力逐步放进同一产品。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1953364524167541211" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="community">
+            <div class="history-event-date">2025-09-17</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-community">社区 / 治理</span></div>
+              <h3>官方 NFT 上线</h3>
+              <p>总量 10,000，Mint 费用 5,000 $ALLINDOGE，官方文案明确费用销毁。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1968208352686772356" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="partner">
+            <div class="history-event-date">2025-10-17</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-partner">合作</span></div>
+              <h3>ALLINDOGE × UXUY Alpha Draw</h3>
+              <p>通过持仓空投与交易抽奖扩大外部触达。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1979155491201913101" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="dev">
+            <div class="history-event-date">2025-11-09</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-dev">开发周更</span></div>
+              <h3>固定周更开始形成连续记录</h3>
+              <p>Project Listing、News Aggregation、Frontend Optimization。项目开始用周更留下更密集的工程轨迹。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1987522471566942587" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="product">
+            <div class="history-event-date">2025-11-18</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-product">产品</span></div>
+              <h3>新 UI + 项目列表 + 新闻整合</h3>
+              <p>产品从单点功能继续走向更完整的信息与研究工作台。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1990657917276868687" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="dev">
+            <div class="history-event-date">2025-11-23</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-dev">开发周更</span></div>
+              <h3>多语言新闻 / Flash News / Bug Fixes</h3>
+              <p>发版后继续修复与扩展，而不是“发完就结束”。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1992634762696302768" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="community">
+            <div class="history-event-date">2025-12-10</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-community">社区 / 治理</span></div>
+              <h3>一周年：从 Meme 到 AI 基础设施</h3>
+              <p>官推写下 “Exactly one year. From flickering meme token to AI infrastructure.” 这是整条建设史最重要的自我总结之一。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/1998682600781627489" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="community">
+            <div class="history-event-date">2025-12-19</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-community">社区 / 治理</span></div>
+              <h3>币安广场 5,000 USDT 等值激励计划</h3>
+              <p>通过成长组与影响力组继续激励内容和社区扩散。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2001985931826667904" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="history-phase" id="phase-4">
+        <div class="history-phase-head">
+          <div class="history-phase-no">PHASE 04</div>
+          <h2>从 AI 助手到创作平台</h2>
+          <p>生图、Web-Search、底层重构与工程稳定化，为下一阶段准备地基。</p>
+        </div>
+        <div class="history-events">
+          
+          <article class="history-event" data-type="product">
+            <div class="history-event-date">2026-02-02</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-product">产品</span></div>
+              <h3>AI Image Generation Beta</h3>
+              <p>文生图、积分、广场分享开始进入公开 Beta。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2018268914787258659" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="dev">
+            <div class="history-event-date">2026-02-08</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-dev">开发周更</span></div>
+              <h3>Web3Auth 社交登录钱包 + 移动端 Canvas</h3>
+              <p>降低登录与使用摩擦，同时把 Canvas 往移动端推进。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2020459803504738743" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="product">
+            <div class="history-event-date">2026-02-09</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-product">产品</span></div>
+              <h3>Web-Search 升级</h3>
+              <p>研究入口继续补齐实时网络信息能力。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2020847010535100546" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="dev">
+            <div class="history-event-date">2026-04-26</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-dev">开发周更</span></div>
+              <h3>模型调试 / 数据管线 / API 重构</h3>
+              <p>项目进入更明显的底层工程期：先重构，再为后续功能铺路。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2048411974401483242" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="dev">
+            <div class="history-event-date">2026-05-03</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-dev">开发周更</span></div>
+              <h3>核心能力模块化</h3>
+              <p>模块调用关系、I/O 标准统一，工程结构开始重新整理。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2050986748050895201" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="dev">
+            <div class="history-event-date">2026-05-10</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-dev">开发周更</span></div>
+              <h3>核心模块重构完成</h3>
+              <p>接口变轻，执行管线性能继续提升。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2053473610157932568" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="dev">
+            <div class="history-event-date">2026-05-17</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-dev">开发周更</span></div>
+              <h3>单测 / 集成 / 压测</h3>
+              <p>不是只看功能“能不能跑”，开始系统验证重构结果。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2056027061668733185" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="resilience">
+            <div class="history-event-date">2026-05-19</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-resilience">韧性时刻</span></div>
+              <h3>经历攻击与剧烈波动后继续交付</h3>
+              <p>官推回应留下来的社区：“While others chased hype, we shipped code.” 原帖没有写具体跌幅数字，因此这里不把社区复盘数字当成官推原文。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2056743722101166259" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="dev">
+            <div class="history-event-date">2026-05-24</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-dev">开发周更</span></div>
+              <h3>重构稳定化与边界场景修复</h3>
+              <p>连续数周都在做不容易被外部看到、但决定产品能不能长期跑的工作。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2058571419303419997" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="history-phase" id="phase-5">
+        <div class="history-phase-head">
+          <div class="history-phase-no">PHASE 05</div>
+          <h2>Canvas / AI 短剧 / Agent</h2>
+          <p>短剧工作流、Canvas、多角色视频、Rust 重写与新 Agent 框架，路线继续向执行型 AI 推进。</p>
+        </div>
+        <div class="history-events">
+          
+          <article class="history-event" data-type="vision">
+            <div class="history-event-date">2026-05-31</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-vision">方向</span></div>
+              <h3>Autonomous Agent + Web3 AI 短剧</h3>
+              <p>官推提出 first AI short drama in Web3，并把方向从 AI Assistant 继续推向 Autonomous Agent。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2060987110442533232" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="dev">
+            <div class="history-event-date">2026-06-07</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-dev">开发周更</span></div>
+              <h3>AI 短剧工作流持续调试</h3>
+              <p>开始进入连续工程周更，而不是一次 Demo。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2063648825387172005" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="dev">
+            <div class="history-event-date">2026-06-14</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-dev">开发周更</span></div>
+              <h3>短剧工作流新一轮内测</h3>
+              <p>重点继续放在稳定性与异常处理。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2066185364377944359" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="dev">
+            <div class="history-event-date">2026-06-21</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-dev">开发周更</span></div>
+              <h3>连续任务执行稳定性</h3>
+              <p>开始处理长链路任务、特殊场景与内测问题。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2068735272842563620" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="dev">
+            <div class="history-event-date">2026-06-28</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-dev">开发周更</span></div>
+              <h3>任务调度 / 中断恢复 / 视频渲染策略</h3>
+              <p>从“生成一个片段”继续走向更像生产系统的任务编排。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2071260672906981888" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="product">
+            <div class="history-event-date">2026-07-05</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-product">产品</span></div>
+              <h3>Canvas 工作流交互模式上线</h3>
+              <p>节点连线、流程预览、错误态提示，AI 短剧生产开始真正可视化。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2073805216416452674" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="dev">
+            <div class="history-event-date">2026-07-13</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-dev">开发周更</span></div>
+              <h3>节点拖拽布局 / 参数同步</h3>
+              <p>Canvas 不断补齐多节点连续执行体验。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2076484361973895628" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="dev">
+            <div class="history-event-date">2026-07-19</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-dev">开发周更</span></div>
+              <h3>执行状态可视化 / 失败节点重试</h3>
+              <p>开始把失败、重试、状态这些真实生产问题放进交互层。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2078873581140983897" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="dev">
+            <div class="history-event-date">2026-08-09</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-dev">开发周更</span></div>
+              <h3>媒体资产 / 视频首尾帧控制</h3>
+              <p>继续增强连续视频生产的可控性。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2086493502872117282" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="dev">
+            <div class="history-event-date">2026-08-24</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-dev">开发周更</span></div>
+              <h3>项目保存恢复 / 生成设置复用</h3>
+              <p>工作流从一次性生成走向可保存、可恢复、可重复使用。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2091708427194229173" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="product">
+            <div class="history-event-date">2026-08-30</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-product">产品</span></div>
+              <h3>多角色联动视频生成 + 新 Agent 框架调研</h3>
+              <p>角色协同能力进入产品，同时研发侧开始研究下一代 Agent 框架。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2094100580327379281" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+          <article class="history-event" data-type="dev">
+            <div class="history-event-date">2026-09-08</div>
+            <div class="history-event-body">
+              <div class="meta"><span class="type type-dev">开发周更</span></div>
+              <h3>核心模块开始 Rust 重写</h3>
+              <p>角色记忆、上下文与 Canvas 自适应继续优化；这是“还在重写底层”的明确信号。</p>
+              <a class="history-tweet-link" href="https://x.com/ALLINDOGE_Alpha/status/2097208545620164947" target="_blank" rel="noopener">查看当时的官方 X 原帖 ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+    </div>
+    <div class="wrap" style="padding:72px 0">
+      <div class="history-futurebox">
+        
+  <div class="wrap">
+    <div class="history-futurebox">
+      <div class="eyebrow">THE NEXT CHAPTER</div>
+      <h2>统计到 2026-09-22。<br/><span class="grad">我们仍在路上。</span></h2>
+      <p>公开周更已经走到 Rust 核心模块重写、角色记忆 / 上下文优化、Canvas 自适应，以及新 Agent 框架调研。时间线没有结束，后面的格子还空着。加入我们吧，一起走向 100M 起航。这里写的是方向，不把未来计划冒充成已经上线。</p>
+      <div class="history-nextgrid">
+        <div class="history-next"><b>继续把 Canvas 做成真正的生产系统</b><span>不只是生成一次，而是保存、恢复、重试、连续执行、多人角色和完整工作流。</span></div>
+        <div class="history-next"><b>从 Assistant 走向 Autonomous Agent</b><span>研究、规划、调用工具、处理异常，让 AI 从“给答案”继续靠近“完成任务”。</span></div>
+        <div class="history-next"><b>探索链上自动化</b><span>未来包括 AI 机器人、策略执行与链上收益自动化等方向；实际能力以正式上线与风险机制为准。</span></div>
+      </div>
+    </div>
+  </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="join">
+    <div class="wrap">
+      <div class="kicker">COMMUNITY · JOIN US</div>
+      <h2>想继续看项目怎么走，<br/>就进到真正的信息源里。</h2>
+      <p class="lead">新人最容易被二手信息带偏。官方进展看 X；中文交流、产品体验、社区建设和新人讨论，可以进入我们自发组建的中文 QQ 社群。</p>
+      <div class="join">
+        <div class="joincard">
+          <div class="kicker">CHINESE COMMUNITY</div>
+          <h3>Allindoge 中文 QQ 社群</h3>
+          <p>社区由中文成员自发组建，方便新人交流项目、跟进产品进展、反馈使用体验，也让不同本领的人找到能参与建设的位置。</p>
+          <div class="groupnum">529223380</div>
+          <div class="ctaRow">
+            <a class="btn primary" href="#qqqr">扫码加入 QQ 群</a>
+            <a class="btn ghost" href="https://x.com/allindoge_alpha" target="_blank" rel="noopener">官方 X：@allindoge_alpha ↗</a>
+          </div>
+          <div class="tiny" style="margin-top:16px">中文 QQ 社群为社区成员自发组织，并非替代官方信息源；项目正式更新请以官方渠道发布为准。</div>
+        </div>
+        <div class="qrbox" id="qqqr">
+          <img src="./qq-qr.jpg" alt="Allindoge 中文 QQ 社群二维码，群号 529223380"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<footer>
+  <div class="wrap">ALLINDOGE · BUILDING SINCE 2024.12.10 · AS OF 2026.09.22 · 我们仍在路上 · 一起走向 100M 起航 · 𝕏 @allindoge_alpha · QQ 529223380</div>
+</footer>
+
+
+<div class="locator" id="locator">
+  <div class="locator-list" id="locatorList"></div>
+  <div class="locator-bar">
+    <div class="locator-now">
+      <span class="locator-k">现在在</span>
+      <span class="locator-t" id="locatorTitle">开头</span>
+    </div>
+    <div class="locator-pos" id="locatorPos">1 / 9</div>
+    <button class="locator-btn" id="locatorToggle" type="button">目录</button>
+  </div>
+</div>
+<script>
+
+(function(){
+  var sections = [
+    {id:"top", name:"开头"},
+    {id:"what", name:"5分钟看懂项目"},
+    {id:"proof", name:"已经建设 651 天"},
+    {id:"products", name:"现在的产品"},
+    {id:"roadmap", name:"发展路线"},
+    {id:"community", name:"社区共建"},
+    {id:"vision", name:"100M 起航"},
+    {id:"building-history-full", name:"完整建设史"},
+    {id:"join", name:"加入我们"}
+  ];
+  var bar = document.getElementById("readProgress");
+  var links = Array.prototype.slice.call(document.querySelectorAll("#pageNav a[data-section], #spyNav a[data-section]"));
+  var locator = document.getElementById("locator");
+  var locatorList = document.getElementById("locatorList");
+  var locatorTitle = document.getElementById("locatorTitle");
+  var locatorPos = document.getElementById("locatorPos");
+  var locatorToggle = document.getElementById("locatorToggle");
+
+  if(locatorList){
+    locatorList.innerHTML = sections.map(function(s, i){
+      return '<a href="#'+s.id+'" data-section="'+s.id+'"><span>'+s.name+'</span><b>'+(i+1)+' / '+sections.length+'</b></a>';
+    }).join("");
+  }
+
+  function setActive(id){
+    links.forEach(function(a){
+      a.classList.toggle("is-active", a.getAttribute("data-section") === id);
+    });
+    if(locatorList){
+      Array.prototype.forEach.call(locatorList.querySelectorAll("a"), function(a){
+        a.classList.toggle("is-active", a.getAttribute("data-section") === id);
+      });
+    }
+    var idx = 0;
+    for(var i=0;i<sections.length;i++){
+      if(sections[i].id === id){ idx = i; break; }
+    }
+    if(locatorTitle) locatorTitle.textContent = sections[idx].name;
+    if(locatorPos) locatorPos.textContent = (idx+1) + " / " + sections.length;
+  }
+
+  function currentId(){
+    var mid = window.innerHeight * 0.32;
+    var found = sections[0].id;
+    for (var i=0;i<sections.length;i++){
+      var el = document.getElementById(sections[i].id);
+      if(!el) continue;
+      if(el.getBoundingClientRect().top - mid <= 0) found = sections[i].id;
+    }
+    return found;
+  }
+
+  function onScroll(){
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var p = max > 0 ? (window.scrollY / max) * 100 : 0;
+    if(bar) bar.style.width = Math.min(100, Math.max(0, p)) + "%";
+    setActive(currentId());
+  }
+
+  if(locatorToggle && locator){
+    locatorToggle.addEventListener("click", function(){
+      locator.classList.toggle("open");
+      locatorToggle.textContent = locator.classList.contains("open") ? "收起" : "目录";
+    });
+  }
+  document.addEventListener("click", function(e){
+    var a = e.target.closest("a[data-section]");
+    if(!a) return;
+    var id = a.getAttribute("data-section");
+    if(id) setActive(id);
+    if(locator) { locator.classList.remove("open"); if(locatorToggle) locatorToggle.textContent = "目录"; }
+  });
+
+  window.addEventListener("scroll", onScroll, {passive:true});
+  window.addEventListener("resize", onScroll);
+  onScroll();
+})();
+
+</script>
+</body>
+</html>
