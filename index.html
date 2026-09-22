@@ -207,21 +207,25 @@
     margin-top:22px;color:#9ea6b1;font-size:14px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08)
   }
   .join{
-    display:grid;grid-template-columns:1fr .75fr;gap:24px;align-items:center;margin-top:36px
+    display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch;margin-top:36px
   }
+  .channel{display:flex;flex-direction:column;gap:14px;min-width:0}
   .joincard{
     border:1px solid rgba(255,255,255,.09);background:#0d1117;border-radius:24px;padding:30px
   }
   .joincard h3{font-size:30px;margin:8px 0 10px}
-  .joincard p{color:#a8afb9;margin:0 0 22px}
+  .joincard p{color:#a8afb9;margin:0 0 16px}
   .groupnum{
-    display:inline-block;font-size:clamp(34px,5vw,58px);font-weight:1000;letter-spacing:-.04em;color:#ffc83d;
-    padding:8px 0 16px
+    display:inline-block;font-size:clamp(28px,4.2vw,48px);font-weight:1000;letter-spacing:-.04em;color:#ffc83d;
+    padding:4px 0 12px;word-break:break-all
   }
+  .groupnum.handle{font-size:clamp(22px,3.4vw,34px);letter-spacing:-.03em}
   .qrbox{
     background:#f4f5f7;border-radius:24px;padding:16px;display:flex;align-items:center;justify-content:center
   }
+  .qrbox.poster{background:#d7ecc0;padding:10px}
   .qrbox img{width:100%;max-width:430px;border-radius:16px;display:block}
+  .qrbox.poster img{max-width:100%;height:auto}
   .tiny{font-size:12px;color:#747d89}
   .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
   .btn.x{background:rgba(255,200,61,.07);color:#ffd66d}
@@ -1075,28 +1079,46 @@ html,body{overflow-x:hidden}
     <div class="wrap">
       <div class="kicker">COMMUNITY · JOIN US</div>
       <h2>想继续看项目怎么走，<br/>就进到真正的信息源里。</h2>
-      <p class="lead">新人最容易被二手信息带偏。官方进展看 X；中文交流、产品体验、社区建设和新人讨论，可以进入我们自发组建的中文 QQ 社群。</p>
+      <p class="lead">官方进展看 X。产品意见、项目合作，去官方 Telegram 频道直接和团队沟通。中文日常交流、新人讨论，进自发组建的 QQ 社群。</p>
       <div class="join">
-        <div class="joincard">
-          <div class="kicker">CHINESE COMMUNITY</div>
-          <h3>Allindoge 中文 QQ 社群</h3>
-          <p>社区由中文成员自发组建，方便新人交流项目、跟进产品进展、反馈使用体验，也让不同本领的人找到能参与建设的位置。</p>
-          <div class="groupnum">529223380</div>
-          <div class="ctaRow">
-            <a class="btn primary" href="#qqqr">扫码加入 QQ 群</a>
-            <a class="btn ghost" href="https://x.com/allindoge_alpha" target="_blank" rel="noopener">官方 X：@allindoge_alpha ↗</a>
+        <article class="channel">
+          <div class="joincard">
+            <div class="kicker">OFFICIAL TELEGRAM</div>
+            <h3>官方 TG 频道</h3>
+            <p>产品意见、项目合作，直接和项目团队沟通。正式反馈、合作对接、和团队说话，走这里。</p>
+            <div class="groupnum handle">@ALLINDOGE_CHAT</div>
+            <div class="ctaRow">
+              <a class="btn primary" href="https://t.me/ALLINDOGE_CHAT" target="_blank" rel="noopener">打开 Telegram ↗</a>
+              <a class="btn ghost" href="#tgqr">扫码加入</a>
+            </div>
+            <div class="tiny" style="margin-top:16px">官方频道。产品意见与项目合作请走这里，不要只在二手群里打听。</div>
           </div>
-          <div class="tiny" style="margin-top:16px">中文 QQ 社群为社区成员自发组织，并非替代官方信息源；项目正式更新请以官方渠道发布为准。</div>
-        </div>
-        <div class="qrbox" id="qqqr">
-          <img src="./qq-qr.jpg" alt="Allindoge 中文 QQ 社群二维码，群号 529223380"/>
-        </div>
+          <div class="qrbox poster" id="tgqr">
+            <img src="./tg-qr.jpg" alt="Allindoge 官方 Telegram 频道二维码，@ALLINDOGE_CHAT"/>
+          </div>
+        </article>
+        <article class="channel">
+          <div class="joincard">
+            <div class="kicker">CHINESE COMMUNITY</div>
+            <h3>Allindoge 中文 QQ 社群</h3>
+            <p>社区由中文成员自发组建，方便新人交流项目、跟进进展、反馈使用体验，也让不同本领的人找到能参与建设的位置。</p>
+            <div class="groupnum">529223380</div>
+            <div class="ctaRow">
+              <a class="btn primary" href="#qqqr">扫码加入 QQ 群</a>
+              <a class="btn ghost" href="https://x.com/allindoge_alpha" target="_blank" rel="noopener">官方 X：@allindoge_alpha ↗</a>
+            </div>
+            <div class="tiny" style="margin-top:16px">中文 QQ 社群为社区成员自发组织，并非替代官方信息源；项目正式更新请以官方渠道发布为准。</div>
+          </div>
+          <div class="qrbox" id="qqqr">
+            <img src="./qq-qr.jpg" alt="Allindoge 中文 QQ 社群二维码，群号 529223380"/>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
 <footer>
-  <div class="wrap">ALLINDOGE · BUILDING SINCE 2024.12.10 · AS OF 2026.09.22 · 我们仍在路上 · 一起走向 100M 起航 · 𝕏 @allindoge_alpha · QQ 529223380</div>
+  <div class="wrap">ALLINDOGE · BUILDING SINCE 2024.12.10 · AS OF 2026.09.22 · 我们仍在路上 · 一起走向 100M 起航 · 𝕏 @allindoge_alpha · TG @ALLINDOGE_CHAT · QQ 529223380</div>
 </footer>
 
 
