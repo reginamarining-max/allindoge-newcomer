@@ -124,10 +124,18 @@
   .card h3{font-size:22px;margin:12px 0 8px}
   .card p{color:#9ca3ad;margin:0;font-size:15px}
   .card-go{display:inline-block;margin-top:16px;color:#ffc83d;font-weight:800;font-size:13px}
-  .chartbox{
-    margin-top:24px;border:1px solid rgba(255,255,255,.09);border-radius:24px;overflow:hidden;background:#0b0f14
+  .chart-jump{
+    display:flex;flex-direction:column;gap:8px;margin-top:24px;padding:28px;
+    border-radius:24px;border:1px solid rgba(255,200,61,.28);
+    background:
+      radial-gradient(circle at 90% 10%,rgba(255,200,61,.18),transparent 36%),
+      linear-gradient(180deg,#151a22,#0d1117);
   }
-  .chartbox iframe{display:block;width:100%;height:560px;border:0;background:#0b0f14}
+  .chart-jump-k{font-size:11px;letter-spacing:.16em;font-weight:900;color:#8fd8ae}
+  .chart-jump strong{font-size:clamp(28px,4vw,44px);letter-spacing:-.04em}
+  .chart-jump span{color:#b6bbc5;max-width:520px}
+  .chart-jump em{margin-top:8px;font-style:normal;color:#ffc83d;font-weight:800}
+  .chart-jump:hover{border-color:#ffc83d}
   .carow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px}
   .ca{
     font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:#ffd66d;
@@ -308,7 +316,6 @@
 @media(max-width:560px){
   .history-embed .history-futurebox{padding:22px}
   h1{font-size:44px}
-  .chartbox iframe{height:420px}
 }
 html,body{overflow-x:hidden}
 
@@ -586,9 +593,12 @@ html,body{overflow-x:hidden}
         <code class="ca" id="tokenCa">HyDKNdnhZNVYQMruBevbNsUWruA9STmAQrS4srXApump</code>
         <button class="btn ghost" type="button" data-copy="HyDKNdnhZNVYQMruBevbNsUWruA9STmAQrS4srXApump" id="copyCa">复制 CA</button>
       </div>
-      <div class="chartbox">
-        <iframe title="ALLINDOGE 实时 K 线" src="https://dexscreener.com/solana/5Ln4d8fXeU3gCCneHArHkTNzxnzMaLJxnBwufUx2wPcm?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartDefaultOnMobile=1&chartTheme=dark&theme=dark&chartStyle=1&chartType=usd&interval=60" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
+      <a class="chart-jump" href="https://dexscreener.com/solana/HyDKNdnhZNVYQMruBevbNsUWruA9STmAQrS4srXApump" target="_blank" rel="noopener">
+        <div class="chart-jump-k">LIVE CANDLES · RAYDIUM</div>
+        <strong>ALLINDOGE / SOL</strong>
+        <span>打开 DexScreener，看实时 K 线、成交和流动性。</span>
+        <em>dexscreener.com ↗</em>
+      </a>
       <div class="tiny" style="margin-top:14px">仅展示公开行情，不构成价格预测、收益承诺或投资建议。交易有风险，请自行判断。</div>
     </div>
   </section>
