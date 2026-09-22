@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <title>Allindoge｜新人项目介绍</title>
 <meta name="description" content="5分钟看懂 Allindoge：从社区共建，到 Web3 AI 工作台，再到 Agent 执行层。"/>
 <meta name="theme-color" content="#07090c"/>
@@ -25,10 +25,11 @@
     background:rgba(7,9,12,.86);
     border-bottom:1px solid rgba(255,255,255,.08);
   }
-  .navin{height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-  .brand{font-weight:900;letter-spacing:.04em;white-space:nowrap}
+  .navin{height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;overflow:hidden}
+  .brand{font-weight:900;letter-spacing:.04em;white-space:nowrap;flex:0 0 auto}
   .brand b{color:#ffc83d}
-  .links{display:flex;gap:6px;color:#b8bdc7;font-size:13px;flex-wrap:wrap;justify-content:flex-end}
+  .links{display:flex;gap:6px;color:#b8bdc7;font-size:13px;flex-wrap:nowrap;justify-content:flex-end;overflow-x:auto;max-width:calc(100% - 150px);scrollbar-width:none}
+  .links::-webkit-scrollbar{display:none}
   .links a{
     padding:7px 10px;border-radius:999px;color:#b8bdc7;border:1px solid transparent;
   }
@@ -204,13 +205,13 @@
   .src{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);color:#777f89}
   .src b{color:#aeb5bf}
   @media(max-width:900px){
-    .hero{grid-template-columns:1fr;min-height:auto;padding-top:54px}
+    .hero{grid-template-columns:1fr;min-height:auto;padding:54px 0 108px}
     .metric .big{font-size:68px}
     .cards,.product-links{grid-template-columns:1fr}
     .grid2{grid-template-columns:1fr}
     .community{grid-template-columns:1fr 1fr}
     .t{grid-template-columns:64px 1fr}.t .status{grid-column:2}
-    .links{display:flex;max-width:70%;}
+    .links{display:none}
   }
   @media(max-width:560px){
     .community{grid-template-columns:1fr}
@@ -339,7 +340,7 @@ html,body{overflow-x:hidden}
   }
   @media(max-width:900px){
     .locator{
-      display:block;position:fixed;left:12px;right:12px;bottom:14px;z-index:40;
+      display:block;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom, 0px));z-index:40;
     }
     .locator-bar{
       display:flex;align-items:center;gap:10px;
@@ -369,7 +370,7 @@ html,body{overflow-x:hidden}
     }
     .locator-list a.is-active{background:rgba(255,200,61,.14);color:#ffd66d}
     .locator-list a b{font-size:11px;color:#8b929c;font-weight:800}
-    body{padding-bottom:86px}
+    body{padding-bottom:calc(108px + env(safe-area-inset-bottom, 0px))}
   }
 
 .meta{margin-bottom:6px}
